@@ -1,14 +1,14 @@
 # آلور
 
-من آلور را برعکس بازار آگهی معمولی چیدم. خریدار اول نیاز را می‌نویسد. فروشنده روی همان درخواست قیمت می‌دهد. پیشنهادها کنار هم‌اند تا مقایسه شوند. آگهی فروش را حذف نکردم؛ موازی است و در جستجوی بازار دیده می‌شود. اگر فقط آگهی می‌ماند، آلور یک تابلوی دیگر می‌شد.
+آلور را برعکس بازار آگهی معمولی چیدم. خریدار اول نیازش را می‌نویسد و فروشنده روی همان درخواست قیمت می‌دهد. پیشنهادها کنار هم‌اند تا بتوان آن‌ها را مقایسه کرد. آگهی فروش را حذف نکردم؛ کنار درخواست می‌ماند و در جستجوی بازار دیده می‌شود. اگر کار به آگهی خلاصه می‌شد، آلور یک تابلوی دیگر بود.
 
 سایت: [alwer.ir](https://alwer.ir)
 
 ## آنچه روی صفحهٔ اصلی گفتم
 
-مسیر خریدار روی [alwer.ir](https://alwer.ir): ثبت درخواست، نوشتن نیاز، و اگر بخواهد دستیار همان سایت که متن آزاد را به فیلد ساخت‌یافته تبدیل می‌کند. بعد شهر و بودجه و جزئیات، بعد مقایسهٔ پیشنهادها. مسیر فروشنده: پیشنهاد قیمت روی درخواست مرتبط، آگهی فروش برای جستجوی بازار، و هشدار برای یک دسته و یک شهر. فیلد ساخت‌یافته را برای همین گذاشتم؛ پیشنهاد قیمت بدون فیلد مشترک قابل مقایسه نیست. همان صفحه دستیار را Alwer Intelligence می‌نامد و می‌گوید پردازش روی زیرساخت آلور است. نام مدل را اینجا نمی‌آورم چون صفحهٔ عمومی هم نام مدل ننوشته است.
+مسیر خریدار در [alwer.ir](https://alwer.ir) این است: ثبت درخواست، نوشتن نیاز، و اگر بخواهد دستیار همان سایت که متن آزاد را به فیلد ساخت‌یافته تبدیل می‌کند. بعد شهر و بودجه و جزئیات، بعد مقایسهٔ پیشنهادها. مسیر فروشنده: پیشنهاد قیمت روی درخواست مرتبط، آگهی فروش برای جستجوی بازار، و هشدار برای یک دسته و یک شهر. فیلد ساخت‌یافته را برای همین گذاشتم؛ پیشنهاد قیمت بدون فیلد مشترک قابل مقایسه نیست. همان صفحه دستیار را Alwer Intelligence می‌نامد و می‌گوید پردازش روی زیرساخت آلور است. نام مدل را اینجا نمی‌آورم چون صفحهٔ عمومی هم نام مدل ننوشته است.
 
-ده ثبت اول هر ماه، درخواست خرید یا آگهی فروش، رایگان است و سهمیه اول ماه از نو پر می‌شود. بعد از آن هر ثبت ۱۰٬۰۰۰ تومان از کیف پول کم می‌شود. روی خود معامله کارمزد نیست. این جمله روی همان صفحه است. در کد، `FREE_REQUEST_LIMIT` برابر ۱۰ و `REQUEST_FEE_AMOUNT` برابر ۱۰۰۰۰ است. `FREE_QUOTE_LIMIT` هم ۱۰ است و `QUOTE_FEE_AMOUNT` برابر ۵۰۰۰. پنجرهٔ سهمیه را با `jalaliPeriod.js` روی ماه جلالی بستم (`periodType` پیش‌فرض `monthly` در کاتالوگ سهمیه)، چون «اول ماه» برای کاربر ایرانی اول ماه میلادی نیست.
+ده ثبت اول هر ماه، درخواست خرید یا آگهی فروش، رایگان است و سهمیهٔ اول هر ماه از نو پر می‌شود. بعد از آن هر ثبت ۱۰٬۰۰۰ تومان از کیف پول کم می‌شود. روی خود معامله کارمزد نیست. این جمله روی همان صفحه است. در کد، `FREE_REQUEST_LIMIT` برابر ۱۰ و `REQUEST_FEE_AMOUNT` برابر ۱۰۰۰۰ است. `FREE_QUOTE_LIMIT` هم ۱۰ است و `QUOTE_FEE_AMOUNT` برابر ۵۰۰۰. پنجرهٔ سهمیه را با `jalaliPeriod.js` روی ماه جلالی گذاشتم (`periodType` پیش‌فرض `monthly` در کاتالوگ سهمیه)، چون «اول ماه» برای کاربر ایرانی اول ماه میلادی نیست.
 
 ## سه پوسته، یک API
 
@@ -16,11 +16,11 @@
 
 API `alwer-server` است. Express ^4.21.2 روی Node.js با `engines` برابر `>=20`. در `src/server.js` اول Postgres را چک می‌کنم، Redis را وصل می‌کنم، Socket.IO را به همان سرور HTTP می‌چسبانم، ورکرهای Bull را راه می‌اندازم، بعد گوش می‌دهم. Postgres یک `pg.Pool` در `src/infrastructure/database/postgresql.js` است با حداکثر ۲۰ اتصال. Redis کلاینت `ioredis` ^5.4.2 است. Bull ^4.16.5 است چون هشدار تطبیق و تطبیق مقابل نباید داخل درخواست HTTP بمانند. ورکر استخراج متن وقتی صف هوش مصنوعی روشن باشد شروع می‌شود. ورکر ذخیرهٔ embedding وقتی `embedPersistEnabled` باشد شروع می‌شود.
 
-اپ `alwer_app` پوستهٔ Flutter است، نسخهٔ `1.0.13+79`، Dart `>=3.5.0 <4.0.0`. توضیح pubspec این است که بازار و مسیرهای اصلی نیتیو‌اند و WebView برای مسیر fallback. `webview_flutter` ^4.10.0 و `speech_to_text` ^7.0.0 را برای همین گذاشتم: برنامه باید بازار را نشان بدهد و ورودی گفتاری روی دستگاه بماند، نه اینکه کل محصول یک مرورگر جدا باشد.
+اپ `alwer_app` پوستهٔ Flutter است، نسخهٔ `1.0.13+79`، Dart `>=3.5.0 <4.0.0`. توضیح pubspec این است که بازار و مسیرهای اصلی نیتیو هستند و WebView مسیر fallback است. `webview_flutter` ^4.10.0 و `speech_to_text` ^7.0.0 را برای همین گذاشتم: برنامه باید بازار را نشان بدهد و ورودی گفتاری روی دستگاه بماند، نه اینکه کل محصول یک مرورگر جدا باشد.
 
 ## درخواست و پیشنهاد
 
-ساخت درخواست `POST /api/requests` است با `authMiddleware` و `checkRequestQuota`. فهرست `GET /api/requests` است. مال خود کاربر `GET /api/requests/mine`. یک درخواست `GET /api/requests/:id` با احراز اختیاری. به‌روزرسانی `PUT`، حذف `DELETE`. ردیف‌های مرتبط `GET /api/requests/:id/related` و `GET /api/requests/:id/matches`. برآورد بازار `GET /api/requests/:id/market-estimate`. تماس `POST /api/requests/:id/contact`. تمدید `POST /api/requests/:id/renew`. سهمیه را روی ساخت گذاشتم نه روی خواندن؛ دیدن بازار نباید کیف پول را کم کند.
+درخواست با `POST /api/requests` ساخته می‌شود و از `authMiddleware` و `checkRequestQuota` می‌گذرد. فهرست `GET /api/requests` است. مال خود کاربر `GET /api/requests/mine`. یک درخواست `GET /api/requests/:id` با احراز اختیاری. به‌روزرسانی `PUT`، حذف `DELETE`. ردیف‌های مرتبط `GET /api/requests/:id/related` و `GET /api/requests/:id/matches`. برآورد بازار `GET /api/requests/:id/market-estimate`. تماس `POST /api/requests/:id/contact`. تمدید `POST /api/requests/:id/renew`. سهمیه را روی ساخت گذاشتم، نه روی خواندن؛ دیدن بازار نباید از کیف پول کم کند.
 
 پیشنهادها در `quote.routes.js` همگی پشت `authMiddleware` هستند. `POST /api/requests/:id/quotes` علاوه بر آن `checkQuoteQuota` دارد. `GET /api/requests/:id/quotes` پیشنهادهای همان درخواست است. `GET /api/quotes/mine` و `GET /api/quotes/seller-dashboard` برای فروشنده است. `PATCH /api/quotes/:id` ویرایش است. `POST /api/quotes/:id/accept` قبول خریدار است و `POST /api/quotes/:id/withdraw` پس گرفتن فروشنده. قبول را جدا از چت گذاشتم تا «این قیمت را برداشتم» یک رویداد مشخص باشد، نه یک جمله داخل گفتگو.
 
@@ -36,7 +36,7 @@ API `alwer-server` است. Express ^4.21.2 روی Node.js با `engines` برا�
 
 ## بقیهٔ همان فرآیند
 
-در `app.js` کلاه ایمنی Helmet، CORS، و بدنهٔ JSON با سقف ۱ مگابایت را قبل از مسیرها گذاشتم. این مسیرها روی همان Express هستند چون بازار یک API است، نه چند سرویس: `/api/alerts`، `/api/notifications`، `/api/wallet`، `/api/affiliate`، `/api/pricing`، `/api/reports`، `/api/ratings`، `/api/blog`، `/api/pages`، `/api/seo`، `/api/meta`، `/api/vehicles`، `/api/electronics`، `/api/users`، `/api/ai`، `/api/map`، `/api/bookmarks`، `/api/ads`، `/api/support`. مسیر مدیریت جدا سوار می‌شود. مسیر ناشناس به هندلر خطا در ته `app.js` می‌افتد.
+در `app.js` میان‌افزار Helmet و CORS و بدنهٔ JSON با سقف ۱ مگابایت را قبل از مسیرها گذاشتم. این مسیرها روی همان Express هستند چون بازار یک API است، نه چند سرویس: `/api/alerts`، `/api/notifications`، `/api/wallet`، `/api/affiliate`، `/api/pricing`، `/api/reports`، `/api/ratings`، `/api/blog`، `/api/pages`، `/api/seo`، `/api/meta`، `/api/vehicles`، `/api/electronics`، `/api/users`، `/api/ai`، `/api/map`، `/api/bookmarks`، `/api/ads`، `/api/support`. مسیر مدیریت جدا سوار می‌شود. مسیر ناشناس به هندلر خطا در ته `app.js` می‌افتد.
 
 `/api/content-review` را برای بررسی آگهی همکاران سوار کردم. سایت همکاران [alweryar.ir](https://alweryar.ir) است. فروشگاه‌هایی که کالا را به همین بازار می‌آورند [alwerchi.ir](https://alwerchi.ir) است. جزئیات آن دو را از روی خودشان می‌گویم، نه از روی این API.
 
@@ -44,9 +44,9 @@ API `alwer-server` است. Express ^4.21.2 روی Node.js با `engines` برا�
 
 ## pgvector، خاموش تا بردار باشد
 
-تطبیق واژگانی مسیر امن است. برای کوتاه‌کردن نامزدها ستون `requests.embedding` را از نوع `vector(768)` در مهاجرت `database/migrations/020_pgvector_request_embeddings.sql` اضافه کردم. `matchPgvectorEnabled` در `src/config/intelligence.js` با متغیر `ALWER_MATCH_PGVECTOR` پیش‌فرض خاموش است؛ همان فایل می‌گوید تا وقتی embedding هست روشن نشود و مسیر واژگانی شبکهٔ ایمنی بماند. اگر کوتاه‌فهرست برداری روشن باشد، ترکیب با مسیر واژگانی پیش‌فرض روشن است مگر `ALWER_MATCH_HYBRID` صفر شود. نام مدل تعبیه را اینجا نمی‌نویسم.
+مسیر مطمئن، تطبیق واژگانی است. برای کوتاه کردن فهرست نامزدها ستون `requests.embedding` را از نوع `vector(768)` در مهاجرت `database/migrations/020_pgvector_request_embeddings.sql` اضافه کردم. `matchPgvectorEnabled` در `src/config/intelligence.js` با متغیر `ALWER_MATCH_PGVECTOR` پیش‌فرض خاموش است؛ همان فایل می‌گوید تا وقتی embedding ساخته نشده روشن نشود و مسیر واژگانی شبکهٔ ایمنی بماند. اگر فهرست کوتاه برداری روشن باشد، ترکیب با مسیر واژگانی پیش‌فرض روشن است مگر `ALWER_MATCH_HYBRID` صفر شود. نام مدل تعبیه را اینجا نمی‌نویسم.
 
-کیف پول شارژ ثبت را بعد از سهمیهٔ رایگان کم می‌کند. نام درگاه را از روی بستهٔ سرور به این معرفی نیاوردم.
+کیف پول هزینهٔ ثبت را بعد از سهمیهٔ رایگان کم می‌کند. نام درگاه را از روی بستهٔ سرور به این معرفی نیاوردم.
 
 ## English
 
@@ -100,12 +100,12 @@ The wallet deducts the post charge after the free quota. I am not bringing a gat
 
 ## پروژه‌های مرتبط
 
-- [hamejoo-intro](https://github.com/mnhashemabadi/hamejoo-intro): همه‌جو را برای بازدیدکننده‌ای گذاشتم که با یک عبارت آگهی را یک‌جا ببیند و برای جزئیات به سایت منبع برود.
-- [kasbafzar-intro](https://github.com/mnhashemabadi/kasbafzar-intro): کسب‌افزار را برای کسی گذاشتم که فروش و مشتری و هزینه را ثبت کند و فاکتور را با لینک پرداخت برای مشتری بفرستد.
-- [azadchi-intro](https://github.com/mnhashemabadi/azadchi-intro): آزادچی را برای آگهی و جستجو در مناطق آزاد گذاشتم؛ گفتگو با طرف معامله داخل خود آزادچی می‌ماند.
-- [afzi-intro](https://github.com/mnhashemabadi/afzi-intro): افزی را برای کوتاه کردن یک نشانی http یا https گذاشتم؛ باز کردن لینک همان صفحه را باز می‌کند.
-- [alweryar-intro](https://github.com/mnhashemabadi/alweryar-intro): آلوریار را برای همکاری در بررسی آگهی و همکاری در فروش آلور گذاشتم.
-- [alwerchi-intro](https://github.com/mnhashemabadi/alwerchi-intro): آلورچی را برای فروشگاهی گذاشتم که کالا و موجودی‌اش در بازار آلور دیده شود و خریدار در آلور بماند.
+- [hamejoo-intro](https://github.com/mnhashemabadi/hamejoo-intro): همه‌جو را برای بازدیدکننده‌ای ساختم که با یک عبارت آگهی را یک‌جا ببیند و برای جزئیات به سایت منبع برود.
+- [kasbafzar-intro](https://github.com/mnhashemabadi/kasbafzar-intro): کسب‌افزار را برای کسی ساختم که فروش و مشتری و هزینه را ثبت کند و فاکتور را با لینک پرداخت برای مشتری بفرستد.
+- [azadchi-intro](https://github.com/mnhashemabadi/azadchi-intro): آزادچی را برای آگهی و جستجو در مناطق آزاد ساختم؛ گفتگو با طرف معامله داخل خود آزادچی می‌ماند.
+- [afzi-intro](https://github.com/mnhashemabadi/afzi-intro): افزی را برای کوتاه کردن یک نشانی http یا https ساختم؛ باز کردن لینک کوتاه همان صفحه را باز می‌کند.
+- [alweryar-intro](https://github.com/mnhashemabadi/alweryar-intro): آلوریار را برای همکاری در بررسی آگهی و همکاری در فروش آلور ساختم.
+- [alwerchi-intro](https://github.com/mnhashemabadi/alwerchi-intro): آلورچی را برای فروشگاهی ساختم که کالا و موجودی‌اش در بازار آلور دیده شود و خریدار در آلور بماند.
 
 ## Related
 
