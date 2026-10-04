@@ -52,7 +52,7 @@ End-to-end tests: Playwright, devDependency `@playwright/test` ^1.61.1 in `alwer
 - Image upload: multer and sharp
 - Web push: web-push
 - On-device speech input: `speech_to_text` in `alwer_app/lib/core/native_stt/device_speech.dart`
-- Request matching: PostgreSQL pgvector embeddings. Extension and column are created in `alwer-server/database/migrations/020_pgvector_request_embeddings.sql`. Matching code is in `alwer-server/src/modules/matching/matchEmbedding.js`.
+- Request matching: lexical match is the default path. PostgreSQL pgvector embeddings exist for an optional shortlist and the flag defaults off (`ALWER_MATCH_PGVECTOR`). Extension and column are created in `alwer-server/database/migrations/020_pgvector_request_embeddings.sql`. Matching code is in `alwer-server/src/modules/matching/matchEmbedding.js`.
 
 ## Boundaries
 
